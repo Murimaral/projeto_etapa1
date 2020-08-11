@@ -15,5 +15,6 @@ class CarCategoriesController < ApplicationController
     @car_category = CarCategory.create(car_category_params)
     redirect_to car_category_path(id: @car_category.id) #tambem poderia por (@car_category) ou redirect_to @car_category
   end  
+  # possivel criar um metodo PRIVATE chamado def car_category_params e no escopo teria params.require(:car_category).permit(:name, :daily_rate, :car_insurance, :third_party_insurance)
 end
     
