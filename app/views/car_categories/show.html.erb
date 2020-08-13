@@ -8,4 +8,6 @@
 <dt>Seguro de Terceiros</dt>
 <dd><span>R$ <%= number_to_currency @car_category.third_party_insurance %></span></dd>
 </dt>
+<%= link_to 'Editar', edit_car_category_path(@car_category) %>
 <%= link_to "Voltar", car_categories_path %>
+<%= link_to 'Apagar', car_categories_path(@car_category, method: :delete, data: {confirm: 'Gostaria de apagar esta categoria?'}) %>

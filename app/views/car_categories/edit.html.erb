@@ -1,0 +1,3 @@
+<!-- views parciais são chamadas de _<nome>.html.erb -->
+<%= render partial: 'form', locals: {car_category: @car_category} %> 
+<!-- as boas praticas recomendam que quando se usa PARTIAL, as variaveis das views nao contenham @ e a partial faça a ponte entre as variaveis -->

@@ -1,12 +1,12 @@
-<% if @car_category.errors.any? %>   <!--poderia ser tbm .errors.present? -->
+<% if car_category.errors.any? %>   <!--poderia ser tbm .errors.present? -->
 
-    <% @car_category.errors.full_messages.each do |message| %> <!--.errors.full_messages retorna um array de string dos erros -->
+    <% car_category.errors.full_messages.each do |message| %> <!--.errors.full_messages retorna um array de string dos erros -->
         <p><%= message %></p>
     <% end %>    
 <% end %>  
 
 <!-- s erros de .errors apenas são gravados no objetos no array quando é tentado DAR SAVE -->
-<%= form_with model: @car_category, local: true do |f| %>
+<%= form_with model: car_category, local: true do |f| %>
  <div>
 <%= f.label :name %>
 <%= f.text_field :name %>
