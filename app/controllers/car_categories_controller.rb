@@ -34,6 +34,8 @@ class CarCategoriesController < ApplicationController
      redirect_to car_categories_path
   end  
 
+  private 
+  
   def set_car_category
     @car_category = CarCategory.find(params[:id])
   end  
