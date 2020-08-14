@@ -1,0 +1,15 @@
+<h1><%= @car_model.name %></h1>
+<div>
+<ul>
+<li><%= @car_model.manufacturer %></li>
+<li><%= @car_model.year%></li>
+<li><%= @car_model.motorization%></li>
+<li><%= @car_model.fuel_type %></li>
+<li><%= @car_model.car_category.name %></li>
+<li><%= @car_model.car_category.daily_rate %></li>
+<li><%= @car_model.car_category.car_insurance %></li>
+<li><%= @car_model.car_category.third_party_insurance %></li>
+</ul>
+</div>
+
+<h3><%= link_to 'Voltar', car_models_path %></h3>

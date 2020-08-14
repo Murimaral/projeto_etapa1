@@ -1,9 +1,10 @@
 class SubsidiariesController < ApplicationController
+  before_action :carrega_com_um_dado_do_form, only: [:show, :edit]
+  
   def index
     @subsidiaries = Subsidiary.all 
   end  
   def show
-    @subsidiary = Subsidiary.find(params[:id])
   end  
   def new
     @subsidiary = Subsidiary.new
@@ -13,5 +14,15 @@ class SubsidiariesController < ApplicationController
      @subsidiary = Subsidiary.create(subsidiary_params) 
     redirect_to @subsidiary
   end  
+  def edit
+    
+  end  
   
+  def set_subsidiary_params
+     params.require(:subsidiary).permit(:name, :cnpj, :address) 
+  end 
+  def carrega_com_um_dado_do_form
+     @subsidiary = Subsidiary.find(params[:id])
+  end  
+
 end
