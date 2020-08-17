@@ -52,6 +52,6 @@ feature 'Admin edits manufacturer' do
     fill_in 'Nome', with: 'Top'
     click_on 'Enviar'
 
-    expect(page).to have_content('deve ser único')
+    expect(page).to have_content('já está em uso')
   end
 end

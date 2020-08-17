@@ -1,5 +1,8 @@
 class CarModel < ApplicationRecord
   belongs_to :car_category
+  validates :name, :year, :manufacturer, :fuel_type, :motorization, presence: true
+
+
 end
 
 #no model do car category pode ser colocado um has_many (uma categoria pode ser varios modelos de carros)

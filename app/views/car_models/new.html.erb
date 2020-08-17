@@ -1,0 +1,43 @@
+<% if @car_model.errors.any? %>   <!--poderia ser tbm .errors.present? -->
+
+    <% @car_model.errors.full_messages.each do |message| %> <!--.errors.full_messages retorna um array de string dos erros -->
+       <p><%= message %></p>
+
+    <% end %>   
+<% end %>     
+<%= form_with model: @car_model, local: true do |f| %>
+<div>
+<%= f.label :name, 'Nome'%>
+<%= f.text_field :name %>
+</div>
+<div>
+<%= f.label :year, 'Ano'%>
+<%= f.number_field :year, min: 0%>
+</div>
+<div>
+<%= f.label :manufacturer, 'Fabricante' %>
+<%= f.text_field :manufacturer %>
+</div>
+<div>
+<%= f.label :motorization, 'Motorização'%>
+<%= f.text_field :motorization %>
+</div>
+<div>
+<%= f.label :fuel_type, 'Tipo de combustível'%>
+<%= f.text_field :fuel_type %>
+</div>
+
+<div>
+ <%= f.label :car_category_id, 'Categoria de carro'%>
+ <%= f.collection_select(:car_category_id, @car_categories, :id, :name, prompt: 'Escolha uma categoria de carro') %>
+
+
+</div>
+<%= f.submit 'Enviar' %>
+<% end %>
+
+<!-- lembrar do nome PLACEHOLDER -->
+
+<!-- lista fixa
+%= f.label :car_category, 'Categoria de carro' %
+ %= f.select :car_category, options_for_select ([['Top', 1], ['Flex', 2]])%-->
