@@ -1,3 +1,22 @@
-<%= form_with :model @subsidiary, local: true do |f| %>
+<% if @subsidiary.errors.present? %>
+<% @subsidiary.errors.full_messages.each do |message| %>
+<h3><%= message %></h3>
+<%end%>
+<%end%>
+<%= form_with model: @subsidiary, local: true do |f| %>
 <div>
 <%= f.label :name, 'Nome' %>
+<%= f.text_field :name %>
+</div>
+<div>
+<%= f.label :cnpj, 'nº do CNPJ' %>
+<%= f.text_field :cnpj %>
+</div>
+<div>
+<%= f.label :address, 'Endereço' %>
+<%= f.text_field :address %>
+</div>
+<div>
+<%= f.submit 'Salvar alterações' %>
+</div>
+<% end %>
