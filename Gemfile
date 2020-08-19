@@ -7,6 +7,7 @@ ruby '2.7.0'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'rspec-rails', '~> 4.0.1'
 gem 'capybara'
+gem 'devise'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
