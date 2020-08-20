@@ -1,6 +1,6 @@
 class SubsidiariesController < ApplicationController
   before_action :carrega_com_um_dado_do_form, only: [:show, :edit, :update]
-  
+  before_action :authenticate_user!
   def index
     @subsidiaries = Subsidiary.all 
   end  

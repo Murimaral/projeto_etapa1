@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    
     <title>RentalCars</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +11,11 @@
   </head>
 
   <body>
+     <nav>
+      <%= link_to "Categorias", car_categories_path %>
+      <%= link_to "Filiais", subsidiaries_path %>
+      <%= link_to 'Modelos de carro', car_models_path %>
+    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

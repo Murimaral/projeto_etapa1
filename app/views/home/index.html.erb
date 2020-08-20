@@ -1,12 +1,12 @@
 <% if user_signed_in? %>
 <%= "Bem-Vindo, #{current_user.name}" %>
-<%= link_to 'Sair', destroy_user_session_path %>
+<div>
+<%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+</div>
 <% else %>
+<div>
 <%= link_to 'Entrar', new_user_session_path %>
+</div>
 <% end %>
 <h1>Rental Cars</h1>
 
-<%= link_to "Categorias", car_categories_path %>
-
-<%= link_to "Filiais", subsidiaries_path %>
-<%= link_to 'Modelos de carro', car_models_path %>

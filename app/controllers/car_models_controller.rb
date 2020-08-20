@@ -1,6 +1,6 @@
 class CarModelsController < ApplicationController
    before_action :set_um_car_model_do_usuario, only: [:show]
-   
+   before_action :authenticate_user!
 
    def index
       @car_models = CarModel.all
