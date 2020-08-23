@@ -4,6 +4,8 @@ class RentalsController < ApplicationController
 
    def new
     @rental = Rental.new
+    @clients = Client.all
+    @car_categories = CarCategory.all
    end
 
 
