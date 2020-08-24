@@ -15,8 +15,14 @@ feature 'admin schedule date of rent' do
         login_as user, scope: :user
         visit root_path
         click_on 'Locações'
+        puts "============================="
+        puts current_path
+        puts "============================="
         click_on 'Agendar nova locação'
-        fill_in 'Data de início', with: '21/08/2030' #antes de continuar RESOLVE ISSO
+        puts "============================="
+        puts current_path
+        puts "============================="
+        fill_in "Data de início", with: '21/08/2030' #antes de continuar RESOLVE ISSO
         fill_in 'Data de término', with: '23/08/2030'
         select 'Fulano Sicrano - 399.479.898-10', from: 'Cliente'
         select 'A', from: 'Categoria de carro'
