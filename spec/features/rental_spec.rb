@@ -26,5 +26,11 @@ RSpec.describe Rental, type: :model do
         
         end
 
+        xit 'must be unique' do
+
+        end
+
     end
+
+   
 end

@@ -1,1 +1,29 @@
 <h3><%= link_to 'Agendar nova locação', new_rental_path %></h3>
+
+<%= form_with url: rentals_search_path, method: :get do |f| %>
+    <%= f.label :qualquertok, 'Código de locação' %>
+    <%= f.text_field :qualquertok %>
+    <%= f.submit 'Buscar' %>
+
+<% end %>    
+
+<% @rentals.each do |r| %>
+<dl>
+   <dt>Código</dt>
+   <dd><%=r.token%></dd>
+   <dt>Data de início</dt>
+   <dd><%= l r.start_date %></dd>
+   <dt>Data de término</dt>
+   <dd><%= l r.end_date %></dd>
+   <dt>Cliente</dt>
+   <dd><%= r.client.name %></dd>
+   <dd><%= r.client.cpf %></dd>
+   <dd><%= r.client.email %></dd>
+   <dt>Categoria de carro</dt>
+   <dd><%= r.car_category.name %></dd>
+   <dt>Previsão de valor </dt>
+    <dt>Usuário</dt>
+   <dd><%=r.user.email %></dd>
+   </dl>
+
+   <% end %>
