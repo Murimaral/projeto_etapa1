@@ -11,7 +11,7 @@ class RentalsController < ApplicationController
    
    def search
       #@rentals = Rental.where(token: params[:qualquertok])
-      @rentals = Rental.where('token LIKE ?', "%#{params[:qualquertok]}%")
+      @rentals = Rental.where('token LIKE UPPER(?)', "%#{params[:qualquertok]}%")
       # esse argumento do where segue comando SQL,
       #para saber mais acessar SQL Like
       # o ? é tipo um params para SQL, um coringa, que recebe uma string
