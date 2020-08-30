@@ -1,7 +1,8 @@
-<!-- <% @rentals.each do |r| %> -->
+
+<div>
 <dl>
    <dt>Código</dt>
-   <dd><%=rental.token%></dd>
+   <dd><%= rental.token %></dd>
    <dt>Data de início</dt>
    <dd><%= l rental.start_date %></dd>
    <dt>Data de término</dt>
@@ -13,7 +14,13 @@
    <dt>Categoria de carro</dt>
    <dd><%= rental.car_category.name %></dd>
    <dt>Previsão de valor </dt>
+   <dd><%= number_to_currency rental.total%></dd>
     <dt>Usuário</dt>
    <dd><%=rental.user.email %></dd>
+   <%= link_to 'Ver detalhes', rental%>
    </dl>
-<!-- <% end %> -->
+   </div>
+
+  
+   
+   

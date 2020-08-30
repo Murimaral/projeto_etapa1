@@ -1,0 +1,39 @@
+<h1> Locação </h1>
+
+<div>
+<dl>
+   <dt>Código</dt>
+   <dd><%= @rental.token %></dd>
+   <dt>Data de início</dt>
+   <dd><%= l @rental.start_date %></dd>
+   <dt>Data de término</dt>
+   <dd><%= l @rental.end_date %></dd>
+   <dt>Cliente</dt>
+   <dd><%= @rental.client.name %></dd>
+   <dd><%= @rental.client.cpf %></dd>
+   <dd><%= @rental.client.email %></dd>
+   <dt>Categoria de carro</dt>
+   <dd><%= @rental.car_category.name %></dd>
+   <dt>Previsão de valor </dt>
+   <dd><%= number_to_currency @rental.total%></dd>
+    <dt>Usuário</dt>
+   <dd><%=@rental.user.email %></dd>
+   <%= link_to 'Ver detalhes', @rental%>
+   </dl>
+   </div>
+
+
+
+ <% if @rental.car_rental %>
+   <h2>Locação Iniciada</h2>
+   Carro Escolhido: <%= @rental.car_rental.car.description %>
+   CNH do Condutor: <%= @rental.car_rental.driver_license_number %>
+   Inicio da locação: <%= l @rental.car_rental.start_date%>
+  <% else %>
+  <%= link_to 'Iniciar locação', new_rental_car_rental_path(@rental.id) %>
+   <% end %>
+
+
+
+<%= link_to 'Cancelar locação' %>
+<%= link_to 'Reagendar locação' %>

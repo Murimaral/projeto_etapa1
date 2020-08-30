@@ -1,6 +1,6 @@
 <h3><%= link_to 'Agendar nova locação', new_rental_path %></h3>
 
-<%= form_with url: search_rentals_path, method: :get do |f| %>
+<%= form_with url: search_rentals_path, method: :get, local: true do |f| %>
     <%= f.label :qualquertok, 'Código de locação' %>
     <%= f.text_field :qualquertok %>
     <%= f.submit 'Buscar' %>
@@ -8,4 +8,11 @@
    <% end %>
    <%if @rentals.present?  %>
       <%= render @rentals %>
-   <% end %> <!--ARRUMAR ESSA PARTIAL-->
+   <% end %> 
+
+
+ 
+   
+   <!-- render partial: 'rental', locals {rental: rental}>-->
+   <!-- para omitir o each seria-->
+    <!-- render partial 'rental', collection: @rentals  -->

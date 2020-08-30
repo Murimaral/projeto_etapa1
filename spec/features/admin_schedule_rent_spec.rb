@@ -35,9 +35,9 @@ feature 'admin schedule date of rent' do
         expect(page).to have_content('23/08/2030')
         expect(page).to have_content('Fulano Sicrano')
         expect(page).to have_content('399.479.898-10')
-        expect(page).to have_content('test@client.com')
+        expect(page).to have_content('teste@client.com')
         expect(page).to have_content('A')
-        expect(page).to have_content('R$ 600,00')
+        expect(page).to have_content('R$ 500,00')
         expect(page).to have_content('Agendamento realizado com sucesso')
         #2.days.from_now >> 2
         #2.days.from_now.to_date (retorna a data daqui a dois dias)

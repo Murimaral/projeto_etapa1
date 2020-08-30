@@ -23,13 +23,18 @@ feature 'User starts rental' do
     login_as user, scope: :user
     visit root_path
     click_on 'Locações'
-    fill_in 'Código de locaçao', with: rental.token
+    fill_in 'Código de locação', with: rental.token
     click_on 'Buscar'
     click_on 'Ver detalhes'
     click_on 'Iniciar locação'
     select "#{car_model.name} - #{car.color} - #{car.license_plate}", 
     from: 'Carros disponíveis'
-    click_on 'Iniciar locação'
+    fill_in 'CNH do condutor', with: 'RJ200100-10'
+    travel_to Time.zone.local(2020, 10, 01, 12, 30, 45) do
+
+        click_on 'Iniciar locação'
+    end
+    puts '------------------------'
     #TODO: pegar nome, cnh do condutor, foto do carro
     expect(page).to have_content('Locação iniciada com sucesso')
     expect(page).to have_content(car.color)
@@ -38,9 +43,12 @@ feature 'User starts rental' do
     expect(page).to have_content(client.name)
     expect(page).to have_content(car_category.name)
     expect(page).to have_content(user.email)
+    expect(page).to have_content('RJ200100-10')
     expect(page).to have_content(client.cpf)
     expect(page).to have_content(client.email)
-
+    expect(page).to have_content("01 de outubro de 2020, 12:30:45")
+    #quando temos rotas aninhadas e queremos passar como parametro de um formulario
+    #inves de passar apenas @car_rental, temos que passar [@rental, @car_rental] sequencia do aninhamentor
    end 
 
 

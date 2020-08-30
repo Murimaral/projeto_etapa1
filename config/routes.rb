@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   #get 'rentals/search', to: 'rentals#search'
   resources :car_categories, :car_models, :subsidiaries, :clients, only: [:index, :new, :show, :create, :edit, :update, :destroy] 
   resources :rentals do
+    resources :car_rentals
     get 'search', on: :collection
   end
 
