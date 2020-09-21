@@ -6,6 +6,9 @@ require 'rails_helper'
 describe 'Car management'do
     context 'index' do
         it 'renders available cars' do
+        #FactoryBot.create_list(:car, status: :available) daria erro pq criaria mesmas categorias de novo
+        #car = FactoryBot.create(:car, license_plate:'ABC1234', status::available)
+        #FactoryBot.create(:car, license_plate:'ABC9999', status::available, car_model: car.car_model) e assim pro car_category  
             car_category = CarCategory.create!(name: 'A', daily_rate:100, car_insurance: 100,
                                                third_party_insurance: 100)
             car_model = CarModel.create!(name: 'Onix', year: 2019, 
