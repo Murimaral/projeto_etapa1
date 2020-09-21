@@ -3,15 +3,19 @@ class CarRentalsController < ApplicationController
     def new
        @rental = Rental.find(params[:rental_id])
        @car_rental =  CarRental.new
-       @available_cars = Car.all
+       @available_cars = @rental.car_category.cars.available #graças ao enum e o hasmany through 
+       #Car.where(car_model: @rental.car_category.car_models).available 
+
     end
     def create 
         @rental = Rental.find(params[:rental_id])
         @car_rental = @rental.build_car_rental(car_rentals_params)
         @car_rental.save!
+        @car_rental.car.rented!
         redirect_to @rental, notice: "Locação iniciada com sucesso"
     end
 
+    
     private
     def car_rentals_params
         params.require(:car_rental).permit(:car_id, 

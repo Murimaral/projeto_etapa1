@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_30_005736) do
+ActiveRecord::Schema.define(version: 2020_08_31_190511) do
 
   create_table "car_categories", force: :cascade do |t|
     t.string "name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_08_30_005736) do
     t.string "driver_license_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "end_date"
     t.index ["car_id"], name: "index_car_rentals_on_car_id"
     t.index ["rental_id"], name: "index_car_rentals_on_rental_id"
     t.index ["user_id"], name: "index_car_rentals_on_user_id"
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_08_30_005736) do
     t.integer "mileage"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status"
     t.index ["car_model_id"], name: "index_cars_on_car_model_id"
   end
 

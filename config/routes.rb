@@ -7,6 +7,12 @@ Rails.application.routes.draw do
     resources :car_rentals
     get 'search', on: :collection
   end
+  namespace :api do
+    namespace :v1 do
+      resources :cars, only: %i[index]
 
+    end
+     
+  end
   
 end

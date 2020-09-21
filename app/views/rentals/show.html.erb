@@ -32,7 +32,9 @@
   <% else %>
   <%= link_to 'Iniciar locação', new_rental_car_rental_path(@rental.id) %>
    <% end %>
-
+<% if @rental.in_progress? %>
+<p><%= 'Em andamento'%></p>
+<%end%>
 
 
 <%= link_to 'Cancelar locação' %>

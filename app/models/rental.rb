@@ -10,9 +10,26 @@ class Rental < ApplicationRecord
   def total
     number_of_days = end_date - start_date 
     calculo = number_of_days*(car_category.daily_rate+car_category.car_insurance+car_category.third_party_insurance)
+  
   end
   
+  def high_season?
+    start_of_year = Date.current.beginning_of_year
+    start_of_year <= Date.current <= start_of_year + 3.months
+  end  
 
+
+
+
+  def scheduled?
+     car_rental.blank?
+  end
+  def in_progress?
+    car_rental && car_rental.end_date.blank?
+  end
+  def finalized?
+    car_rental && car_rental.end_date.present?
+  end
 
   private
   def generate_token
