@@ -7,6 +7,9 @@ class Car < ApplicationRecord
   def description
      "#{car_model.name} - #{color} - #{license_plate}"
   end
-
-
+  
+  #def j_son(options = {})
+  #   super(options.merge(include: :car_model, except: :car_model_id))
+  #end
+    
 end
