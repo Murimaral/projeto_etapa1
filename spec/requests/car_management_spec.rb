@@ -47,13 +47,15 @@ describe 'Car management'do
 
     context 'GET /api/v1/car/:id' do
         context 'record exists' do
+
             let(:car) do
                 create(:car,license_plate: 'ABC1234',
                 color: 'Caramelo', status: :available)
             end
+
             it 'return 200 status' do
                 get "/api/v1/cars/#{car.id}"
-
+            
                 expect(response).to be_ok
             end
             it 'returns car' do
@@ -108,12 +110,13 @@ describe 'Car management'do
                 post '/api/v1/cars'
 
                 expect(response).to have_http_status(:precondition_failed)
-                expect(expect.body).to include('Parâmetros inválidos')
+                expect(response.body).to include('Parâmetros inválidos')
             end
             it 'without requested params' do
                 post '/api/v1/cars', params: { car: { foo: 'bar'}}
+                
 
-                expect(response.to be_unprocessable_entity)
+                expect(response).to have_http_status(:unprocessable_entity)
                 expect(response.body).to include('Placa não pode ficar em branco')
                 expect(response.body).to include('Modelo de carro é obrigatório(a)')
                 expect(response.body).to include('Cor não pode ficar em branco')
