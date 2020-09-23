@@ -21,9 +21,9 @@ class Api::V1::CarsController < Api::V1::ApiController
         #rescue StandardError resgata todos os erros
      
     end       
-    def destroy 
-      @car = Car.find(params.require(:car))
-    end     
+    #def destroy 
+     # @car = Car.find(params.require(:car))
+    #end     
     
 
 end

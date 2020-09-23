@@ -1,6 +1,9 @@
 class CarCategoriesController < ApplicationController
   before_action :set_car_category, only: [:edit, :update, :show, :destroy]
   before_action :authenticate_user!
+
+  # para mudar para o friendly_id os ja salvos usar CarCategories.find_each(&:save)
+
   def index
     @car_categories = CarCategory.all
   end    
@@ -38,7 +41,7 @@ class CarCategoriesController < ApplicationController
   private 
   
   def set_car_category
-    @car_category = CarCategory.find(params[:id])
+    @car_category = CarCategory.friendly.find(params[:id])
   end  
   def set_car_category_params
     params.require(:car_category).permit(:name, :daily_rate, :car_insurance, :third_party_insurance) 
