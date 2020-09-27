@@ -122,6 +122,7 @@ describe 'Car management'do
                 expect(response.body).to include('Cor não pode ficar em branco')
             end
             xit 'car_model_id not exist' do 
+                
             end
         end
     end

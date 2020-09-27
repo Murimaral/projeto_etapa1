@@ -1,6 +1,6 @@
 class CarCategory < ApplicationRecord
   extend FriendlyId
-  friendly_id: :name, use: :slugged
+  friendly_id :name, use: :slugged
   has_many :car_model, dependent: :destroy #se for apagada essa classe, serao apagadas todas as dependentes dela, tipo car_models
   has_many :cars, through: :car_models   #permite usar o comando @car_category.cars
   has_many :rental
