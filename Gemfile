@@ -6,6 +6,7 @@ ruby '2.7.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'devise'
+gem 'friendly_id', '~> 5.4.0'
 gem 'cpf_cnpj'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
@@ -45,7 +46,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'friendly_id', '~> 5.4.0'
+  
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
